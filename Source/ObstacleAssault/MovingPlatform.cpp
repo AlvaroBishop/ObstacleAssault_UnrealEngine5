@@ -13,12 +13,19 @@ AMovingPlatform::AMovingPlatform()
 void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
+
+	StartLocation = GetActorLocation();
 }
 
 // Called every frame
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	MyVector2.Y += 5;
-	SetActorLocation(MyVector2);
+	FVector CurrentLocation = GetActorLocation();
+	FVector PlatformSpeed = PlatformVelocity * DeltaTime;
+	CurrentLocation += PlatformSpeed;
+	SetActorLocation(CurrentLocation);
+	
+	Distance = FVector::Dist(StartLocation, CurrentLocation);
+
 }
