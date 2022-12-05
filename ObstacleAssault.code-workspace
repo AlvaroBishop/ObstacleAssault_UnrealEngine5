@@ -10,7 +10,12 @@
 		}
 	],
 	"settings": {
-		"typescript.tsc.autoDetect": "off"
+		"typescript.tsc.autoDetect": "off",
+		"files.associations": {
+			"*.ipp": "cpp",
+			"algorithm": "cpp",
+			"iterator": "cpp"
+		}
 	},
 	"extensions": {
 		"recommendations": [
