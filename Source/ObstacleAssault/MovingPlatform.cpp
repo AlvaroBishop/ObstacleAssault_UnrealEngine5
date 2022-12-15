@@ -59,10 +59,10 @@ void AMovingPlatform::MovePlatform(float DeltaTime) {
 	}
 
 	void AMovingPlatform::RotatePlatform(float DeltaTime) {
-		UE_LOG(LogTemp, Display, TEXT("DeltaTime: %f"), DeltaTime);
+		AddActorLocalRotation(RotationVelocity * DeltaTime);
 	}
 
-	bool AMovingPlatform::ShouldPlatformReturn(){
+	bool AMovingPlatform::ShouldPlatformReturn() const{
 
 		return GetDistanceMoved() > MoveDistance;
 	}
